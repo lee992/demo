@@ -7,4 +7,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<select id="getAllUser" resultType="UserDTO">
  		SELECT * FROM todo
  	</select>
+ 	<insert id="InsertTest" parameterType="UserDTO">
+ 		INSERT INTO todo (test) VALUES (#{test})
+ 	</insert>
+ 	<delete id="DeleteTest" parameterType="int">
+ 		DELETE FROM todo WHERE id = #{id}
+ 	</delete>
+ 	<update id="CrystalTest" parameterType="UserDTO">
+    	UPDATE todo
+       	SET test = #{test}
+     	WHERE id = #{id}
+  	</update>
  </mapper>
