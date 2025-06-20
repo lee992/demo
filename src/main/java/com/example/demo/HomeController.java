@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.model.UserDTO;
-import com.example.demo.service.UserService;
+import com.example.demo.model.TodoDTO;
+import com.example.demo.service.TodoService;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
@@ -35,39 +35,39 @@ public class HomeController {
 	}
 	
 	@Autowired
-	private UserService userService;  //의존성 주입 - 필드주입
+        private TodoService todoService;  // 의존성 주입 - 필드주입
 	
 	@GetMapping("/Test")
-	public String Test(Model model) {
-		List<UserDTO> users = userService.getAllUser();
-		model.addAttribute("users",users);
-		return "DbTest";
-	}
+        public String Test(Model model) {
+                List<TodoDTO> todos = todoService.getAllTodo();
+                model.addAttribute("todos", todos);
+                return "DbTest";
+       }
 	
 	@PostMapping("InsertTest")
-	public String InsertTest(UserDTO userDTO) {
-		userService.InsertTest(userDTO);
-		return"redirect:/Test";
-	}
+        public String InsertTest(TodoDTO todoDTO) {
+                todoService.insertTodo(todoDTO);
+                return"redirect:/Test";
+       }
 	
 	@GetMapping("/DeleteTest")
-	public String DeleteTest(@RequestParam int id) {
-		userService.DeleteTest(id);
-		return "redirect:/Test";
-	}
+        public String DeleteTest(@RequestParam int id) {
+                todoService.deleteTodo(id);
+                return "redirect:/Test";
+       }
 	
 	@GetMapping("/CrystalTest")
-	public String CrystalTest(
+        public String CrystalTest(
 
 		@RequestParam("id") int id,
 		@RequestParam("test") String test
 ){	
-	UserDTO dto = new UserDTO();
+        TodoDTO dto = new TodoDTO();
 	//System.out.println(dto.getId());
 	//System.out.println(dto.getTest());
     dto.setId(id);
     dto.setTest(test);
-    userService.CrystalTest(dto);
+    todoService.updateTodo(dto);
     return "redirect:/Test";
 }
 }

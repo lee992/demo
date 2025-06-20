@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
-public class UserDTO {
+/**
+ * Data transfer object representing a todo item.
+ */
+public class TodoDTO {
 	private int id;
 	public int getId() {
 		return id;
@@ -14,6 +17,6 @@ public class UserDTO {
 	public void setTest(String test) {
 		this.test = test;
 	}
-	private String test;
+        private String test;
 
 }
