@@ -27,7 +27,7 @@
 		</c:forEach>	
 	</table>
 	<form action="InsertTest" method="post">
-		 <input type="text" name="test" plceholder="새로운 값 입력" />
+		 <input type="text" name="test" placeholder="새로운 값 입력" />
 		 <button type="submit">추가</button>
 	</form>
 </body>
