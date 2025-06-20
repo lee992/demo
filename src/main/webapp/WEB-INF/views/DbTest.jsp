@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!-- JSRL 사용하기 위한 설정 -->
+    <!-- JSTL 사용하기 위한 설정 -->
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
     prefix="c" %>
 <!DOCTYPE html>
@@ -17,14 +17,14 @@
 			<th>Delete</th>
 			<th>Crystal</th>
 		</tr>
-		<c:forEach items="${users}" var="user">
-			<tr>
-				<td>${user.id}</td>
-				<td>${user.test}</td>
-				<td><button onclick=DeleteTest(${user.id})>삭제</button></td>
-				<td><button onclick="CrystalTest(${user.id}, '${user.test}')">수정</button></td>
-			</tr>
-		</c:forEach>	
+                <c:forEach items="${todos}" var="todo">
+                        <tr>
+                                <td>${todo.id}</td>
+                                <td>${todo.test}</td>
+                                <td><button onclick=DeleteTest(${todo.id})>삭제</button></td>
+                                <td><button onclick="CrystalTest(${todo.id}, '${todo.test}')">수정</button></td>
+                        </tr>
+                </c:forEach>
 	</table>
 	<form action="InsertTest" method="post">
 		 <input type="text" name="test" placeholder="새로운 값 입력" />

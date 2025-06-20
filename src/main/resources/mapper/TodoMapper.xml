@@ -3,17 +3,17 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.example.demo.mapper.UserMapper">
- 	<select id="getAllUser" resultType="UserDTO">
+ <mapper namespace="com.example.demo.mapper.TodoMapper">
+        <select id="getAllTodo" resultType="TodoDTO">
  		SELECT * FROM todo
  	</select>
- 	<insert id="InsertTest" parameterType="UserDTO">
+        <insert id="insertTodo" parameterType="TodoDTO">
  		INSERT INTO todo (test) VALUES (#{test})
  	</insert>
- 	<delete id="DeleteTest" parameterType="int">
+        <delete id="deleteTodo" parameterType="int">
  		DELETE FROM todo WHERE id = #{id}
  	</delete>
- 	<update id="CrystalTest" parameterType="UserDTO">
+        <update id="updateTodo" parameterType="TodoDTO">
     	UPDATE todo
        	SET test = #{test}
      	WHERE id = #{id}
