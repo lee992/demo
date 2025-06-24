@@ -56,8 +56,8 @@ public class HomeController {
 		return "redirect:/Test";
 	}
 	
-	@GetMapping("/CrystalTest")
-	public String CrystalTest(
+        @GetMapping("/CrystalTest")
+        public String CrystalTest(
 
 		@RequestParam("id") int id,
 		@RequestParam("test") String test
@@ -70,6 +70,11 @@ public class HomeController {
     userService.CrystalTest(dto);
     return "redirect:/Test";
 }
+
+        @GetMapping("/todo")
+        public String todoPage() {
+                return "Todo";
+        }
 }
 		
 	
