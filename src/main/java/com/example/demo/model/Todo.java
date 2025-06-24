@@ -2,7 +2,7 @@ package com.example.demo.model;
 
 public class Todo {
     private int id;
-    private String content;
+    private String todo;
 
     public int getId() {
         return id;
@@ -12,11 +12,11 @@ public class Todo {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getTOdo() {
+        return todo;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setTOdo(String todo) {
+        this.todo = todo;
     }
 }

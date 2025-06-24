@@ -5,15 +5,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.example.demo.mapper.TodoMapper">
     <select id="getAll" resultType="Todo">
-        SELECT * FROM todo
+        SELECT * FROM todos
     </select>
     <insert id="insert" parameterType="Todo">
-        INSERT INTO todo (test) VALUES (#{content})
+        INSERT INTO todos (todo) VALUES (#{todo})
     </insert>
     <delete id="delete" parameterType="int">
-        DELETE FROM todo WHERE id = #{id}
+        DELETE FROM todos WHERE id = #{id}
     </delete>
     <update id="update" parameterType="Todo">
-        UPDATE todo SET test = #{content} WHERE id = #{id}
+        UPDATE todos SET todo = #{todo} WHERE id = #{id}
     </update>
 </mapper>
