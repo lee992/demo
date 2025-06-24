@@ -75,6 +75,10 @@ public class HomeController {
         public String todoPage() {
                 return "Todo";
         }
+        @GetMapping("/account")
+        public String accountPage() {
+                return "Account";
+        }
 }
 		
 	
