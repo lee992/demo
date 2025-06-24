@@ -14,19 +14,17 @@
   <button onclick="addTodo()">추가</button>
 
   <script>
-  // 1) 할 일 목록 불러와서 그리기
+  // 1) 할 일 목록 불러오기
   function loadTodos() {
     fetch('/api/todos')
       .then(r => r.json())
       .then(data => {
         const list = document.getElementById('list');
-        list.innerHTML = '';            // 기존 목록 초기화
+        list.innerHTML = '';            
 
         data.forEach(item => {
-          // ───────────────────────────────────
-          // ★ 여기서 item.content가 아니라 item.todo ★
           const div = document.createElement('div');
-          div.textContent = item.todo;  // ← 수정된 부분
+          div.textContent = item.todo;  
 
           // 삭제 버튼
           const del = document.createElement('button');
@@ -59,9 +57,8 @@
     fetch('/api/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      // ───────────────────────────────────
-      // ★ JSON 키도 content가 아니라 todo ★
-      body: JSON.stringify({ todo: text })  // ← 수정된 부분
+      
+      body: JSON.stringify({ todo: text }) 
     })
     .then(() => {
       document.getElementById('newTodo').value = '';
@@ -82,13 +79,12 @@
     fetch('/api/todos/' + id, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ todo: newText })  // ← 수정된 부분
+      body: JSON.stringify({ todo: newText })  
     })
     .then(loadTodos)
     .catch(console.error);
   }
 
-  // 페이지 열리면 바로 로드
   loadTodos();
   </script>
 </body>
