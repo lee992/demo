@@ -16,8 +16,15 @@ public class AccountService {
         return mapper.getAll();
     }
 
+    @Transactional
     public int createAccount(Account account) {
-        return mapper.insert(account);
+        int initialBalance = account.getBalance();
+        account.setBalance(0);
+        mapper.insert(account);
+        if (initialBalance > 0) {
+            mapper.deposit(account.getId(), initialBalance);
+        }
+        return account.getId();
     }
 
     @Transactional
